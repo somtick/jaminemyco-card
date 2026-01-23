@@ -1,0 +1,266 @@
+/* NanaoCSS command
+    >bunx postcss style1.css > style.css
+*/
+
+
+@font-face {
+    font-display: swap;
+    font-family: 'Poppins';
+    font-weight: 700;
+    font-style: normal;
+    src: url('./fonts/poppins-v24-latin-700.woff2') format('woff2');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Inter';
+    font-weight: 300;
+    font-style: normal;
+    src: url('./fonts/inter-v20-latin-300.woff2') format('woff2');
+}
+@font-face {
+    font-display: swap;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-style: normal;
+    src: url('./fonts/inter-v20-latin-regular.woff2') format('woff2');
+}
+
+
+:root {
+    --background-color: oklch(71.55% 0.065 253.2);
+    --black-color: oklch(8.5% 0 0);
+    --white-color: oklch(98% 0.003 247.7);
+    --shadow-color: oklch(66% 0 0);
+
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--background-color);
+    padding: 1.87rem;
+    font-family: "Inter", sans-serif;
+    color: var(--black-color);
+}
+h1, h2, h3 {
+    font-family: "Poppins", sans-serif;
+}
+button, input, textarea, select {
+    font-family: inherit;
+}
+a {
+    text-decoration: none;
+}
+
+
+.card {
+    height: 80vh;
+    width: 90vw;
+    /* Use max-width for smaller screens */
+    max-width: 90vw;
+    transition: transform 0.5s cubic-bezier(0.39, 0.575, 0.565, 1), box-shadow 0.5s cubic-bezier(0.39, 0.575, 0.565, 1);
+    border-radius: 15px;
+    background: var(--background-color);
+    overflow: hidden;
+    box-shadow: 0 0 10px 5px var(--shadow-color);
+    position: relative;
+    cursor: pointer;
+}
+/* Logic: When 'is-flipped' class is added via JS */
+.card.is-flipped .first-box {
+    height: 0;
+    opacity: 0;
+}
+
+.card.is-flipped .second-box {
+    opacity: 1;
+    height: 100%;
+    transform: rotate(0deg) scale(1);
+}
+
+/* DESKTOP HOVER & MOBILE ACTIVE STATE */
+@media (hover: hover) {
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 15px 30px var(--shadow-color);
+    }
+    .card:hover .first-box {
+        height: 0;
+        opacity: 0;
+    }
+    .card:hover .second-box {
+        opacity: 1;
+        height: 100%;
+        transform: rotate(0deg);
+    }
+}
+
+/* MOBILE TOUCH TRIGGERS */
+/* Allows the card to open when tapped and stay open if you use a little JS toggle, 
+   or simply triggers on long-press/active touch */
+.card:active, .card.is-flipped {
+    transform: scale(0.98); /* Slight squish feel on touch */
+}
+
+
+
+.first-box {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    background-image: url("./images/cover.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+    z-index: 2;
+}
+
+
+.title {
+    position: absolute;
+    bottom: 2rem;
+    left: 1.5rem;
+    color: var(--white-color);
+    text-shadow: 0 2px 4px var(--black-color);
+}
+.subtitle {
+    font-weight: 300;
+    font-size: 0.85rem;
+}
+
+
+.second-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    overflow: hidden;
+    background: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: rotate(90deg) scale(-0.5);
+    z-index: 1;
+}
+
+.avatar {
+    vertical-align: middle;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px 3px var(--shadow-color);
+}
+
+.highlight {
+    padding: 2px 4px;
+    text-decoration: overline underline;
+    text-underline-offset: 0.3em;
+    color: var(--black-color);
+    border-radius: 5px;
+}
+
+
+.social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.85rem;
+    margin: 1.25rem 0 1.25rem;
+}
+.social a {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    text-decoration: none;
+    cursor: pointer;
+    /* animation: reverseAnimate 0.3s ease; */
+    color: var(--white-color);
+}
+.social a:active {
+    transform: scale(0.9);
+}
+
+/* Social icon's colors */
+/* 
+ *   Email - #
+ *   Line - #06c755
+ *   Messenger - #0d8bf0
+ *   WhatsApp - #25D366
+*/
+.social a:first-child {
+    background: linear-gradient(to bottom, #007AFF, #005BB5);
+}
+.social a:nth-child(2) {
+    background: #06c755;
+} 
+.social a:nth-child(3) {
+    background: #0d8bf0;
+}
+.social a:last-child {
+    background: #25D366;
+}
+
+.second-box .btns {
+    display: grid;
+    justify-items: center;
+    gap: 1rem;
+}
+
+/* Only animate social icons if the device supports hover, 
+   otherwise use a simple press effect */
+@media (hover: hover) {
+    .social a:hover {
+        animation: animate 0.7s ease forwards;
+    }
+}
+
+
+.btns button {
+    padding: 0.5rem 1rem;
+    min-width: 8rem;
+    min-height: 2.6rem;
+    border: none;
+    border-radius: 5px;
+    letter-spacing: 0.035em;
+    text-transform: uppercase;
+    color: var(--black-color);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.85rem;
+    font-weight: 300;
+    position: relative;
+    overflow: hidden;
+    outline: 2px solid var(--black-color);
+    cursor: pointer;
+}
+
+/* Keyframes kept as original */
+@keyframes animate {
+    0% { transform: rotate(0deg) scale(1); }
+    100% { transform: rotate(360deg) scale(1.1); }
+}

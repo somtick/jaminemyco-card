@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="noindex, nofollow" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preload" href="./fonts/poppins-v24-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="./fonts/inter-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" href="./all.min.css">
+        <link rel="stylesheet" href="style.css">
+        <title>Jina's card</title>
+    </head>
+  <body>
+    <div class="card">
+        <div class="first-box">
+            <div class="title">
+                <h3>Apichaya Vatthanakulkachon</h3>
+                <span>Cofounder of JasmineMyco</span>
+            </div>
+        </div>
+        <div class="second-box">
+            <img class="avatar" src="./images/jina1.webp" alt="jina's avatar">
+            <h3>Apichaya V.(Jina)</h3>
+            <span class="subtitle">Cofounder of <span class="highlight"><a href="https://jasminemyco.com" target="_blank" rel="noopener noreferrer">JasmineMyco</a></span></span>
+            <div class="social">
+                <a href="mailto:apichaya@jasminemyco.com"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://line.me/R/ti/p/%40502cfcab" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-line"></i></a>
+                <a href="https://m.me/JasmineMyco?text=[bCard]Hello!" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-messenger"></i></a>
+                <a href="https://wa.link/17j594" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+            <div class="btns">
+                <a href="https://jasminemycoblog.pages.dev" target="_blank" rel="noopener noreferrer">
+                    <button type="button">Our blog</button></a>
+                <a href="https://cranial.jasminemyco.com" target="_blank" rel="noopener noreferrer"><button type="button">Cranial Biodynamic</button></a>
+                <a href="https://jasminemyco.com/seminar" target="_blank" rel="noopener noreferrer">
+                    <button type="button">Medicinal Mushrooms Seminars</button></a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+      const card = document.querySelector('.card');
+      card.addEventListener('click', function() {
+        this.classList.toggle('is-flipped');
+      });
+    </script>
+  </body>
+</html>
