@@ -1,0 +1,24 @@
+<svg
+  width="1200"
+  height="300"
+  viewBox="0 0 1200 300"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <style>
+    .main {
+      font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 600;
+      font-size: 180px;
+      letter-spacing: 0.02em;
+      fill: #2B2B2B;
+    }
+    .accent {
+      fill: #B3A25A; /* olive-gold */
+    }
+  </style>
+
+  <!-- Main text -->
+  <text x="100" y="200" class="main">
+    ANKR<tspan class="accent">Ā</tspan>
+  </text>
+</svg>

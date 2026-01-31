@@ -15,25 +15,30 @@
 
 @font-face {
     font-display: swap;
-    font-family: 'Inter';
+    font-family: 'Poppins';
     font-weight: 300;
     font-style: normal;
-    src: url('./fonts/inter-v20-latin-300.woff2') format('woff2');
+    src: url('./fonts/poppins-v24-latin-300.woff2') format('woff2');
 }
 @font-face {
     font-display: swap;
-    font-family: 'Inter';
+    font-family: 'Poppins';
     font-weight: 400;
     font-style: normal;
-    src: url('./fonts/inter-v20-latin-regular.woff2') format('woff2');
+    src: url('./fonts/poppins-v24-latin-regular.woff2') format('woff2');
 }
 
 
 :root {
-    --background-color: oklch(71.55% 0.065 253.2);
-    --black-color: oklch(8.5% 0 0);
-    --white-color: oklch(98% 0.003 247.7);
-    --shadow-color: oklch(66% 0 0);
+    --background-color: 211.8deg 43.1% 63.5%;
+    --black-color: 8.5% 0 0;
+    --white-color: 98% 0.003 247.7;
+    --shadow-color: 211deg 26% 38%;
+    --shadow-elevation-low: 0.2px 0.3px 0.5px hsl(var(--shadow-color) / 0.18),
+                            0.8px 1.3px 2px -0.4px hsl(var(--shadow-color) / 0.3),
+                            1.7px 2.8px 4.4px -0.7px hsl(var(--shadow-color) / 0.41),
+                            3.7px 6.3px 9.8px -1.1px hsl(var(--shadow-color) / 0.53);
+
 
 }
 
@@ -50,13 +55,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--background-color);
+    background: hsl(var(--background-color));
     padding: 1.87rem;
-    font-family: "Inter", sans-serif;
-    color: var(--black-color);
+    font-family: "Poppins", sans-serif;
+    line-height: 1.5;
+    color: oklch(var(--black-color));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 h1, h2, h3 {
     font-family: "Poppins", sans-serif;
+    text-wrap: balance;
 }
 button, input, textarea, select {
     font-family: inherit;
@@ -74,9 +83,9 @@ a {
     max-width: 90vw;
     transition: transform 0.5s cubic-bezier(0.39, 0.575, 0.565, 1), box-shadow 0.5s cubic-bezier(0.39, 0.575, 0.565, 1);
     border-radius: 15px;
-    background: var(--background-color);
+    background: hsl(var(--background-color));
     overflow: hidden;
-    box-shadow: 0 0 10px 5px var(--shadow-color);
+    box-shadow: var(--shadow-elevation-low);
     position: relative;
     cursor: pointer;
 }
@@ -96,7 +105,7 @@ a {
 @media (hover: hover) {
     .card:hover {
         transform: scale(1.05);
-        box-shadow: 0 15px 30px var(--shadow-color);
+        box-shadow: var(--shadow-elevation-low);
     }
     .card:hover .first-box {
         height: 0;
@@ -141,7 +150,7 @@ a {
     position: absolute;
     bottom: 2rem;
     left: 1.5rem;
-    color: var(--white-color);
+    color: oklch(var(--white-color));
     text-shadow: 0 2px 4px var(--black-color);
 }
 .subtitle {
@@ -158,7 +167,7 @@ a {
     width: 100%;
     opacity: 0;
     overflow: hidden;
-    background: var(--white-color);
+    background: oklch(var(--white-color));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -173,14 +182,15 @@ a {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    box-shadow: 0 0 5px 3px var(--shadow-color);
+    box-shadow: var(--shadow-elevation-low);
+    transform: rotate(0.5deg);
 }
 
 .highlight {
     padding: 2px 4px;
     text-decoration: overline underline;
     text-underline-offset: 0.3em;
-    color: var(--black-color);
+    color: oklch(var(--black-color));
     border-radius: 5px;
 }
 
@@ -204,7 +214,7 @@ a {
     text-decoration: none;
     cursor: pointer;
     /* animation: reverseAnimate 0.3s ease; */
-    color: var(--white-color);
+    color: oklch(var(--white-color));
 }
 .social a:active {
     transform: scale(0.9);
@@ -217,24 +227,74 @@ a {
  *   Messenger - #0d8bf0
  *   WhatsApp - #25D366
 */
-.social a:first-child {
-    background: linear-gradient(to bottom, #007AFF, #005BB5);
-}
-.social a:nth-child(2) {
-    background: #06c755;
-} 
-.social a:nth-child(3) {
-    background: #0d8bf0;
-}
-.social a:last-child {
-    background: #25D366;
-}
 
 .second-box .btns {
     display: grid;
     justify-items: center;
     gap: 1rem;
 }
+
+/* ----- */
+.social-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 2rem 1.5rem 4rem 1.5rem;
+    font-family: sans-serif;
+}
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.33rem;
+    height: 3.33rem;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.social-icon svg {
+    fill: white;
+    width: 28px;
+    height: 28px;
+}
+/* --- Brand Colors --- */
+
+        /* 1. Mail (Custom Gradient as requested) */
+        .icon-mail {
+            background: linear-gradient(to bottom, #007AFF, #005BB5);
+        }
+
+        /* 2. Messenger (Official Gradient) */
+        .icon-messenger {
+            /* Messenger uses a radial/linear mix, commonly approximated with this gradient */
+            background: linear-gradient(45deg, #0b8bf9, #9c3df5);
+        }
+
+        /* 3. LINE (Official Brand Green) */
+        .icon-line {
+            background-color: #06C755;
+        }
+
+        /* 4. WhatsApp (Official Brand Green) */
+        .icon-whatsapp {
+            background-color: #25D366;
+        }
+
+        /* --- Hover Effects --- */
+        .social-icon:hover {
+            /* Scale up 1.1 */
+            transform: scale(1.1);
+            
+            /* Make darker (Works on gradients and solid colors) */
+            filter: brightness(0.85); 
+            
+            /* Optional: Increase shadow for depth */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+/* ----- */
 
 /* Only animate social icons if the device supports hover, 
    otherwise use a simple press effect */
@@ -253,7 +313,7 @@ a {
     border-radius: 5px;
     letter-spacing: 0.035em;
     text-transform: uppercase;
-    color: var(--black-color);
+    color: oklch(var(--black-color));
     background: transparent;
     cursor: pointer;
     transition: all 0.3s;
@@ -261,7 +321,7 @@ a {
     font-weight: 300;
     position: relative;
     overflow: hidden;
-    outline: 2px solid var(--black-color);
+    outline: 2px solid oklch(var(--black-color));
     cursor: pointer;
 }
 
