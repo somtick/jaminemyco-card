@@ -220,13 +220,7 @@ a {
     transform: scale(0.9);
 }
 
-/* Social icon's colors */
-/* 
- *   Email - #
- *   Line - #06c755
- *   Messenger - #0d8bf0
- *   WhatsApp - #25D366
-*/
+
 
 .second-box .btns {
     display: grid;
@@ -261,6 +255,13 @@ a {
     height: 28px;
 }
 /* --- Brand Colors --- */
+/*                      */
+/* 
+ *   Email - #
+ *   Line - #06c755
+ *   Messenger - #0b8bf9, #9c3df5
+ *   WhatsApp - #25D366
+*/
 
         /* 1. Mail (Custom Gradient as requested) */
         .icon-mail {
@@ -296,15 +297,6 @@ a {
         }
 /* ----- */
 
-/* Only animate social icons if the device supports hover, 
-   otherwise use a simple press effect */
-@media (hover: hover) {
-    .social a:hover {
-        animation: animate 0.7s ease forwards;
-    }
-}
-
-
 .btns button {
     padding: 0.5rem 1rem;
     min-width: 8rem;
@@ -323,12 +315,4 @@ a {
     overflow: hidden;
     outline: 2px solid oklch(var(--black-color));
     cursor: pointer;
-}
-
-/* --------------------------------------------- */
-
-/* Keyframes kept as original */
-@keyframes animate {
-    0% { transform: rotate(0deg) scale(1); }
-    100% { transform: rotate(360deg) scale(1.1); }
 }
